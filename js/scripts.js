@@ -46,10 +46,20 @@ function rollDie() {
 const diceRollMath = Math.floor(Math.random() * 6) + 1;
 // const mathForTurn = Math.floor(Math.random() * 2) + 1;
 
-console.log(diceRollMath);
-console.log(getRandom());
-console.log(rollDie());
-console.log(newPlayer);
-console.log(computerPlayer);
-console.log(currentGame);
+// console.log(diceRollMath);
+// console.log(getRandom());
+// console.log(rollDie());
+// console.log(newPlayer);
+// console.log(computerPlayer);
+// console.log(currentGame);
 
+$(document).ready(function() {
+    
+    $("button#resetThis").click(function(event) {
+        event.preventDefault();
+        $(".well").show();
+        $(".hiddenButton").show();
+        // $("#playersScore").show();
+        // $("#playButtonArea").show();
+    });
+});

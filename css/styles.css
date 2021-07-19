@@ -8,11 +8,36 @@ body {
     }
 
 
-.row {
+/* .row {
     padding: 5px;
     text-align: center;
-}
+} */
+
 a {
     font-size: xx-large;
     font-weight: bolder;
+}
+
+/* #numberDiceDisplay {
+    display: none;
+}
+
+#playersNameAreas {
+    display: none;
+}
+
+#playersScore {
+    display: none;
+}
+
+#playButtonArea {
+    display: none;
+} */
+
+.well {
+    display: none;
+}
+
+.hiddenButton {
+    display: none;
 }
