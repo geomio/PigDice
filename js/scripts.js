@@ -2,7 +2,6 @@ function Game(player1Object, player2Object) {
     this.player1 = player1Object;
     this.player2 = player2Object;
     this.currentPlayer = 1;
-    this.round = 1;
     this.currentScore = 0;
 };
 
@@ -16,6 +15,14 @@ function Player(name) {
 // to make turns for user player
 Game.prototype.turn = function() {
 
+}
+
+Game.prototype.addRollToScore = function(roll) {
+    if (roll === 1) {
+        this.currentScore = 0
+    }else (
+        this.currentScore += roll
+    )
 }
 // to be used to build computer strategy
 Player.prototype.computerAi = function() {
@@ -33,33 +40,38 @@ Player.prototype.checkScore = function() {
     // }
 };
 
-// these below are for computer and player
-let newPlayer = new Player("jim")
-let computerPlayer = new Player("Computer")
-let currentGame = new Game
-
 function rollDie() {
-    Math.floor(Math.random() * 6) + 1;
+    const rollResult = Math.floor(Math.random() * 6) + 1;
+    return rollResult;
 };
 
-// these are to be used for individual dice rolls,
-const diceRollMath = Math.floor(Math.random() * 6) + 1;
-// const mathForTurn = Math.floor(Math.random() * 2) + 1;
 
-// console.log(diceRollMath);
-// console.log(getRandom());
-// console.log(rollDie());
-// console.log(newPlayer);
-// console.log(computerPlayer);
-// console.log(currentGame);
-
+// user interface below
 $(document).ready(function() {
+
+    
     
     $("button#resetThis").click(function(event) {
         event.preventDefault();
+        let newPlayer = new Player("player1")
+        let computerPlayer = new Player("Computer")
+        let currentGame = new Game
         $(".well").show();
         $(".hiddenButton").show();
+        $("#currentScoreArea").show();
         // $("#playersScore").show();
         // $("#playButtonArea").show();
+        $(".startButtonText").html("<p> Start </p>");
+        $(".startButtonText").text("Restart");
+        
+        $("button#roll").click(function() {
+            let diceRollMath = rollDie();
+            currentGame.addRollToScore(diceRollMath);
+            console.log(currentGame.currentScore);
+            $("#displayRoll").html("<p> 0 </p>")
+            $("#displayRoll").text(diceRollMath)
+            // $("#currentScoreDisplay").html("<p> 0 </p>")
+            $("#currentScoreDisplay").text(this.currentScore)
+        });
     });
 });

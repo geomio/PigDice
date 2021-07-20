@@ -17,7 +17,7 @@
       <div class="row" id="numberDiceDisplay">
         <div class="col-lg-12">
           <div class="well" id="displayBorder">
-            <h2>5</h2>
+            <h2><span id="displayRoll">0</span></h2>
           </div>
         </div>
       </div>
@@ -45,17 +45,22 @@
           </div>
         </div>
       </div>
+      <div class="row" id="currentScoreArea">
+        <div class="col-md=12">
+          <h1>Current score display: <span  id="currentScoreDisplay">0</span></h1>
+        </div>
+      </div>
       <div class="row" id="playButtonArea">
         <div class="col-sm-6" id="rollButtonArea">
-          <button class="hiddenButton">Roll</button>
+          <button class="hiddenButton" id="roll">Roll</button>
         </div>
         <div class="col-sm-6" id="holdButtonArea">
-          <button class="hiddenButton">Hold</button>
+          <button class="hiddenButton" id="hold">Hold</button>
         </div>
       </div>
       <div class="row" id="resetGameButton">
         <div class="col-sm-12">
-          <button id="resetThis">Reset</button>
+          <button id="resetThis"><span class="startButtonText">Start</span></button>
         </div>
       </div>
       <div class="row" id="howToPlay">

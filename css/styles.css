@@ -41,3 +41,7 @@ a {
 .hiddenButton {
     display: none;
 }
+
+#currentScoreArea {
+    display: none;
+}
