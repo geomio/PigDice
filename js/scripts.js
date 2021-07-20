@@ -70,8 +70,8 @@ $(document).ready(function() {
             console.log(currentGame.currentScore);
             $("#displayRoll").html("<p> 0 </p>")
             $("#displayRoll").text(diceRollMath)
-            // $("#currentScoreDisplay").html("<p> 0 </p>")
-            $("#currentScoreDisplay").text(this.currentScore)
+            $("#currentScoreDisplay").html("<p> 0 </p>")
+            $("#currentScoreDisplay").text(currentGame.currentScore)
         });
     });
 });
