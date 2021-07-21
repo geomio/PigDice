@@ -14,7 +14,6 @@ function Player(name) {
 
 // to make turns for user player
 Game.prototype.turn = function() {
-
 }
 
 Game.prototype.addRollToScore = function(roll) {
@@ -23,10 +22,24 @@ Game.prototype.addRollToScore = function(roll) {
     }else (
         this.currentScore += roll
     )
-}
-// to be used to build computer strategy
-Player.prototype.computerAi = function() {
+};
 
+Game.prototype.addCurrentScoreToPlayer = function() {
+    if (this.currentPlayer === 1) {
+        this.player1.totalScore += this.currentScore;
+    }else if (this.currentPlayer === 2) {
+        this.player2.totalScore += this.currentScore;
+    }
+    this.currentScore = 0;
+};
+
+Game.prototype.changeCurrentPlayerValue() = function() {
+    if (this.currentPlayer === 1) {
+        this.currentPlayer = 2;
+    }else if (this.currentPlayer ===2) {
+        this.currentPlayer = 1;
+    }
+    
 }
 
 //victory or loss conditions/reset of game
@@ -45,6 +58,20 @@ function rollDie() {
     return rollResult;
 };
 
+function output() {
+
+};
+
+function highlightCurrentPlayer(currentPlayer) {
+    if (currentPlayer === 1) {
+        $("#player").addClass("player-selected");
+        $("#pcPlayer").removeClass("player-selected"); 
+    }else if (currentPlayer === 2) {
+        $("#pcPlayer").addClass("player-selected");
+        $("#player").removeClass("player-selected"); 
+    }
+};
+
 
 // user interface below
 $(document).ready(function() {
@@ -55,23 +82,27 @@ $(document).ready(function() {
         event.preventDefault();
         let newPlayer = new Player("player1")
         let computerPlayer = new Player("Computer")
-        let currentGame = new Game
+        let currentGame = new Game(newPlayer, computerPlayer)
         $(".well").show();
         $(".hiddenButton").show();
         $("#currentScoreArea").show();
+        highlightCurrentPlayer(currentGame.currentPlayer);
         // $("#playersScore").show();
         // $("#playButtonArea").show();
         $(".startButtonText").html("<p> Start </p>");
         $(".startButtonText").text("Restart");
-        
         $("button#roll").click(function() {
             let diceRollMath = rollDie();
             currentGame.addRollToScore(diceRollMath);
             console.log(currentGame.currentScore);
             $("#displayRoll").html("<p> 0 </p>")
             $("#displayRoll").text(diceRollMath)
-            $("#currentScoreDisplay").html("<p> 0 </p>")
+            $("#currentScoreDisplay").html("0")
             $("#currentScoreDisplay").text(currentGame.currentScore)
+        });
+
+        $("button#hold").click(function(){
+            alert(" Turn Over")
         });
     });
 });

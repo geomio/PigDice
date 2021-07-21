@@ -45,3 +45,8 @@ a {
 #currentScoreArea {
     display: none;
 }
+
+.player-selected{
+    border:green;
+    border-style: solid;
+}
