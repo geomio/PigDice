@@ -38,7 +38,7 @@ a {
     display: none;
 }
 
-.hiddenButton {
+#roll {
     display: none;
 }
 
@@ -49,4 +49,8 @@ a {
 .player-selected{
     border:green;
     border-style: solid;
+}
+
+#hold {
+    display: none;
 }
