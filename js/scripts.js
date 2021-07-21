@@ -46,7 +46,7 @@ Game.prototype.endTurn = function() {
         $("#roll").hide()
         $("#hold").hide()
         $("#winMessage").text("Congrats you won!");
-        $("#resetThis").show();
+        $("#trueGameReset").show()
     }else {
         this.changeCurrentPlayerValue();  
     }
@@ -111,6 +111,9 @@ $(document).ready(function() {
             $("#playTotalScore").text(currentGame.player1.totalScore);
             $("#pcPlayTotalScore").text(currentGame.player2.totalScore);
             highlightCurrentPlayer(currentGame.currentPlayer);
+        });
+        $("button#trueGameReset").click(function(){
+            location.reload();
         });
     });
 });
