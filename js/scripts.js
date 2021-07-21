@@ -35,7 +35,6 @@ Game.prototype.changeCurrentPlayerValue = function() {
     }else if (this.currentPlayer ===2) {
         this.currentPlayer = 1;
     }
-    console.log(this.currentPlayer);
 }
 
 Game.prototype.endTurn = function() {
@@ -91,17 +90,13 @@ $(document).ready(function() {
         $("#roll").show();
         $("#currentScoreArea").show();
         highlightCurrentPlayer(currentGame.currentPlayer);
-        $(".startButtonText").html("<p> Start </p>");
-        $(".startButtonText").text("Restart");
         $("#resetThis").hide();
 
         $("button#roll").click(function() {
             let diceRollMath = rollDie();
             $("#hold").show();
             currentGame.addRollToScore(diceRollMath);
-            $("#displayRoll").html("<p> 0 </p>")
             $("#displayRoll").text(diceRollMath)
-            $("#currentScoreDisplay").html("0")
             $("#currentScoreDisplay").text(currentGame.currentScore)
         });
 
